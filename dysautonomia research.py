@@ -1,11 +1,15 @@
 import pandas as pd
+import os
 
-df = pd.DataFrame({
-    'title': ['Dysautonomia'],
-    'description': ['Dysautonomia is a nervous system disorder that disrupts autonomic body processes. These are automatic functions like your blood pressure and heart rate. Having dysautonomia means these functions don’t work properly, causing disruptive symptoms. These symptoms are often manageable, but diagnosing and treating dysautonomia is sometimes difficult.']
-})
-print(df)
-
+csv_path = 'dysautonomia_research.csv'
+if os.path.exists(csv_path):
+    try:
+        df = pd.read_csv(csv_path, encoding='utf-8')
+    except UnicodeDecodeError:
+        df = pd.read_csv(csv_path, encoding='latin1')
+    print(df)
+else:
+    print(f"File '{csv_path}' not found.")
 
 dysautonomia_info = """
 Prevention
@@ -14,6 +18,7 @@ Dysautonomia happens unpredictably and for reasons experts do not yet understand
 Living With
 How do I take care of myself if I have dysautonomia
 Dysautonomia is a complex condition. Many people with it struggle to find a provider who can diagnose and treat it. Many may experience frustration or anxiety surrounding medical care because they don’t know what’s causing their symptoms, and healthcare providers can’t find an explanation for why the symptoms happen.
+
 If you are having symptoms of dysautonomia and experience these feelings, you are  far from alone. You can also take proactive steps to help yourself get a diagnosis and treatment. Some things you can do include:
 Find a provider you feel comfortable with . Your relationship with your provider is crucial to diagnosing, treating and managing dysautonomia. If you do not feel comfortable with or listened to by a provider, or if they don’t have the necessary experience to diagnose and treat your condition, seek a second opinion or another provider.
 Keep a daily journal or diary of symptoms, activities and how you felt. Be detailed in what you record. The information you gather may help a provider see the bigger picture of what you’re experiencing or adjust your treatment.
@@ -65,9 +70,9 @@ Stress.
 Wearing tight clothing.
 Hot environments.
 Nonmedical drug use (especially drugs that slow nervous system activity, like benzodiazepines or opioids).
-You might have other triggers not listed here. If you think you might have a trigger but aren’t sure, tell your healthcare provider about your concern. They may be able to suggest a test or method to check.
+You might have other triggers not listed here. If you think you might have a trigger but are not  sure, tell your healthcare provider about your concern. They may be able to suggest a test or method to check.
 A note from Cleveland Clinic
-Dysautonomia can be frustrating, especially when you don’t know what it is or why it’s happening. For some people, getting a diagnosis may take months or even years. Though challenging to diagnose and treat, many people can manage their symptoms and live their lives with limited disruptions.
+Dysautonomia can be frustrating, especially when you do not  know what it is or why it is happening. For some people, getting a diagnosis may take months or even years. Though challenging to diagnose and treat, many people can manage their symptoms and live their lives with limited disruptions.
 If you suspect you have dysautonomia, a healthcare provider can review your symptoms with you and help you find a specialist with experience in treating this condition. That way, you can go about your day, limiting the effect of your symptoms and focusing on the things that matter to you.
 
 
@@ -155,7 +160,7 @@ Vasovagal syncope (less commonly known as “neurocardiogenic syncope”).
 Vitamin B12 deficiency.
 Wernicke-Korsakoff syndrome (or vitamin B1 deficiency).
 What are the complications of dysautonomia?
-Because dysautonomia affects vital body processes, there are many possible complications. Most of the complications revolve around symptoms of dysautonomia, especially when they’re severe or disrupt your usual routine and activities.
+Because dysautonomia affects vital body processes, there are many possible complications. Most of the complications revolve around symptoms of dysautonomia, especially when there are  severe or disrupt your usual routine and activities.
 Serious symptoms and complications generally include:
 Heart rate issues (too fast, too slow or irregular).
 Fainting (which can lead to injuries from falls).
@@ -166,7 +171,7 @@ Your healthcare provider is the best person to tell you more about the possible 
 Diagnosis and Tests
 How is dysautonomia diagnosed?
 A healthcare provider can diagnose dysautonomia using a combination of methods and tests. Diagnosing dysautonomia is often partly a process of elimination. It also involves determining how and when symptoms happen and finding the pattern that links them.
-But even experienced providers may find dysautonomia challenging to diagnose. That’s because dysautonomia can cause symptoms throughout your body that might not seem connected. Providers may also link symptoms to whatever condition is causing dysautonomia but not realize dysautonomia is also happening.
+But even experienced providers may find dysautonomia challenging to diagnose. That is  because dysautonomia can cause symptoms throughout your body that might not seem connected. Providers may also link symptoms to whatever condition is causing dysautonomia but not realize dysautonomia is also happening.
 Some of the tests that may help with diagnosing dysautonomia (or rule out other conditions) include:
 Physical and neurological exam.
 Tilt table test.
@@ -178,7 +183,7 @@ Blood tests (especially testing for antibodies that indicate an autoimmune disor
 Many other tests are possible, depending on your symptoms. Your healthcare provider can tell you more about tests that may help.
 Management and Treatment
 How is dysautonomia treated, and is there a cure?
-There’s no cure for dysautonomia, but many symptoms are manageable. The treatment approach for dysautonomia depends strongly on many factors, especially what’s causing it.
+There is  no cure for dysautonomia, but many symptoms are manageable. The treatment approach for dysautonomia depends strongly on many factors, especially what is  causing it.
 Some treatment approaches that might help include:
 Diet changes. Increasing salt intake can increase your blood pressure, keeping it from plunging as much when you stand.
 Hydration. Keeping hydrated helps maintain blood pressure.
@@ -188,10 +193,11 @@ When dysautonomia occurs because of a medication or medical treatment, stopping 
 Because there are so many possible treatments for dysautonomia, your healthcare provider is the best source of information about treatment options. They can provide details that are most relevant to your situation and needs. They can also tell you about possible side effects and complications to watch for and what you can do to limit or avoid those.
 Outlook / Prognosis
 What can I expect if I have dysautonomia?
-Dysautonomia can look very different from person to person, even among family members. Your symptoms may be totally different from someone else’s. Your symptoms and how they impact your life can also vary widely.
+Dysautonomia can look very different from person to person, even among family members. Your symptoms may be totally different from someone else  Your symptoms and how they impact your life can also vary widely.
 Many people with dysautonomia may experience difficulties with getting a diagnosis. You’re not alone if you experience frustration, anxiety or other difficult emotions surrounding your symptoms. These feelings are common for those with dysautonomia.
 How long does dysautonomia last?
-Some forms of dysautonomia may be temporary, but it’s usually a lifelong condition.
-What’s the outlook for dysautonomia?
-Dysautonomia is an unpredictable condition. Some people may experience frequent symptoms. Others may go months or even years without any. It’s difficult to predict what your life will look like living with dysautonomia, but your healthcare provider can help you understand what’s possible or likely and what you can do to limit the impact on your life.
+Some forms of dysautonomia may be temporary, but it is  usually a lifelong condition.
+What is  the outlook for dysautonomia?
+Dysautonomia is an unpredictable condition. Some people may experience frequent symptoms. Others may go months or even years without any. It is  difficult to predict what your life will look like living with dysautonomia, but your healthcare provider can help you understand what’s possible or likely and what you can do to limit the impact on your life.
 Depending on the cause, dysautonomia may be a minor concern. But some forms or causes — especially chronic or incurable conditions — may have larger impacts. In severe cases, the symptoms may affect your ability to work or participate in activities you enjoy. This condition may also cause deadly complications.
+"""
