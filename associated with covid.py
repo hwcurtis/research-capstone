@@ -105,3 +105,25 @@ def display_dysautonomia_info():
     print("Dysautonomia Symptoms:")
     for symptom in dysautonomia_symptoms:
         print(f" - {symptom}")
+
+
+COVID_symptoms = [
+    "Fever",
+    "Sore throat",
+    "Headache",
+    "Tiredness (fatigue)",
+    "Body aches",
+    "Chills",
+    "Stuffy or runny nose",
+    "Cough",
+    "Shortness of breath",
+    "Loss of or altered sense of smell and taste",
+    "Difficulty thinking and focusing (brain fog)",
+    "Digestive symptoms, like diarrhea, nausea and vomiting"
+]
+
+
+def display_covid_info():
+    print("COVID-19 Symptoms:")
+    for symptom in COVID_symptoms:
+        print(f" - {symptom}")
