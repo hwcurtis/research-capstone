@@ -1,15 +1,4 @@
-import pandas as pd
-import os
 
-csv_path = 'dysautonomia_research.csv'
-if os.path.exists(csv_path):
-    try:
-        df = pd.read_csv(csv_path, encoding='utf-8')
-    except UnicodeDecodeError:
-        df = pd.read_csv(csv_path, encoding='latin1')
-    print(df)
-else:
-    print(f"File '{csv_path}' not found.")
 
 
 dysautonomia_info = """
@@ -107,7 +96,7 @@ Swings in body or skin temperature.
 Excessive drooling.
 Mood swings or anxiety.
 Vision issues (blurred vision or trouble with your eyes adjusting to light changes).
-Exercise intolerance (your heart rate doesn’t change with physical activity).
+Exercise intolerance (your heart rate does not change with physical activity).
 Runny nose.
 Vertigo.
 What causes dysautonomia?
@@ -115,16 +104,16 @@ There are two main types of dysautonomia, primary and secondary:
 Primary: It happens on its own without another cause.
 Secondary: It happens because of another condition.
 Primary dysautonomias
-Primary dysautonomias happens on their own, without a specific cause. They aren’t as common as secondary dysautonomia (secondary means something else is causing it).
+Primary dysautonomias happens on their own, without a specific cause. They are not  as common as secondary dysautonomia (secondary means something else is causing it).
 A specific example of a primary type is an inherited form called familial dysautonomia. Any of the following can increase your odds of having it:
 Being of Jewish (especially Ashkenazi Jewish) heritage.
 Being of Eastern European heritage.
 Having a family member with dysautonomia (especially a first-degree relative like a parent or sibling).
-Another primary form is “idiopathic” dysautonomia, which means it happens for a reason that healthcare providers can’t explain or detect.
+Another primary form is “idiopathic” dysautonomia, which means it happens for a reason that healthcare providers can not explain or detect.
 Secondary dysautonomias
 There are conditions that can cause or contribute to dysautonomia. Some examples include (but aren’t limited to):
 Amyloidosis.
-Amyotrophic lateral sclerosis (ALS), often known as “Lou Gehrig’s disease.”
+Amyotrophic lateral sclerosis (ALS), often known as “Lou Gehrigs disease.”
 Autoimmune autonomic ganglionopathy (AAG).
 Autonomic dysreflexia.
 Botulism.
@@ -195,7 +184,7 @@ Because there are so many possible treatments for dysautonomia, your healthcare 
 Outlook / Prognosis
 What can I expect if I have dysautonomia?
 Dysautonomia can look very different from person to person, even among family members. Your symptoms may be totally different from someone else  Your symptoms and how they impact your life can also vary widely.
-Many people with dysautonomia may experience difficulties with getting a diagnosis. You’re not alone if you experience frustration, anxiety or other difficult emotions surrounding your symptoms. These feelings are common for those with dysautonomia.
+Many people with dysautonomia may experience difficulties with getting a diagnosis. You are not alone if you experience frustration, anxiety or other difficult emotions surrounding your symptoms. These feelings are common for those with dysautonomia.
 How long does dysautonomia last?
 Some forms of dysautonomia may be temporary, but it is  usually a lifelong condition.
 What is  the outlook for dysautonomia?
@@ -209,10 +198,10 @@ df_symptoms_causes = pd.DataFrame({
     "Symptoms": ["Balance problems", "Fainting or passing out", "Nausea and vomiting",
                  "Brain fog", "Fast heart rate", "Pinpoint eye pupils",
                  "Sensitivity to light", "Temperature regulation issues",
-                 "Digestive problems", "Sleep disturbances"],
+                 "Digestive problems", "Sleep disturbances", "Chronic stress"],
     "Causes": ["Primary dysautonomia", "Secondary dysautonomia", "Genetic factors",
                "Autoimmune disorders", "Infections", "Trauma", "Medications",
-               "Chronic stress", "Postural changes", "Dehydration", "Nutritional deficiencies"]
+               "Postural changes", "Dehydration", "Nutritional deficiencies", "Chronic stress"]
 })
 print(df_symptoms_causes)
 
@@ -221,7 +210,9 @@ pd.set_option("display.max_columns", None)
 pd.set_option("display.width", None)
 pd.set_option("display.max_colwidth", None)
 print(df_symptoms_causes)
-
+join = "inner"
+df = pd.merge(df, df_symptoms_causes, how=join, on="Symptoms")
+print("Merged DataFrame:")
 print(df.head(10))
 df_symptoms_causes.to_csv(
     'dysautonomia_symptoms_causes.csv', index=False, encoding='utf-8')
